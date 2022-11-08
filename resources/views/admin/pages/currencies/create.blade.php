@@ -31,10 +31,10 @@
                     <div class="card-body">
                         <label for="is_custom">extra currency?</label>
                         <input type="checkbox" id="is_custom" value="0">
-                        <div class="row api-row" >
+                        <div class="row api-row">
                             <div class="form-group col-lg-4">
                                 <label>Slug</label>
-                                <select name="slug" class="form-control select2" >
+                                <select name="slug" class="form-control select2">
                                     @foreach ($data as $item)
                                         <option value="{{ $item->slug }}"
                                             @if (old('slug') == $item->slug) selected @endif>
@@ -46,7 +46,7 @@
                             <div class="form-group col-lg-4">
                                 <label>Name</label>
                                 <input type="text" value="{{ old('name') }}" name="name"
-                                    class="form-control @error('name') is-invalid @enderror" >
+                                    class="form-control @error('name') is-invalid @enderror">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Priority</label>
@@ -60,13 +60,13 @@
                             <div class="form-group col-lg-4">
                                 <label>Slug</label>
                                 <input type="text" value="{{ old('slug') }}" name="slug"
-                                    class="form-control @error('slug') is-invalid @enderror" >
+                                    class="form-control @error('slug') is-invalid @enderror">
                             </div>
 
                             <div class="form-group col-lg-4">
                                 <label>Name</label>
                                 <input type="text" value="{{ old('name') }}" name="name"
-                                    class="form-control @error('name') is-invalid @enderror" >
+                                    class="form-control @error('name') is-invalid @enderror">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Priority</label>
@@ -104,8 +104,12 @@
                 if ($(this).is(':checked')) {
                     $(".api-row").hide()
                     $(".custom-row").show()
+                    $("input, select, textarea", $(".api-row")).attr("disabled", "disabled");
+                    $("input, select, textarea", $(".custom-row")).removeAttr("disabled");
                 } else {
                     $(".api-row").show()
+                    $("input, select, textarea", $(".custom-row")).attr("disabled", "disabled");
+                    $("input, select, textarea", $(".api-row")).removeAttr("disabled");
                     $(".custom-row").hide()
                 }
             })

@@ -34,7 +34,7 @@
                                 <label>Slug</label>
                                 <select name="slug" class="form-control select2"  required>
                                     @foreach ($data as $item)
-                                        <option value="{{ $item->slug }}"
+                                        <option value="{{$item->slug}}"
                                             @if (old('slug', $currency->slug) == $item->slug) selected @endif>{{ $item->slug }}({{ $item->name }})
                                         </option>
                                     @endforeach
@@ -94,7 +94,11 @@
             $("[name=name]").val('{{ old('name', $currency->name) }}')
             if(!data__['{{$currency->slug}}']){
                 $(".api-row").hide()
+                $("input, select, textarea", $(".api-row")).attr("disabled", "disabled");
                 $(".custom-row").show()
+            }else{
+                $("input, select, textarea", $(".custom-row")).attr("disabled", "disabled");
+
             }
      
 

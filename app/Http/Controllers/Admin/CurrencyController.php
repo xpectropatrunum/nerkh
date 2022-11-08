@@ -58,6 +58,7 @@ class CurrencyController extends Controller
             "slug" => "required",
         ];
         $request->validate($rules);
+        $request->merge(["priority" => $request->priority ?? 1000]);
 
 
         $created = Currency::create($request->all());
@@ -98,6 +99,7 @@ class CurrencyController extends Controller
             "slug" => "required",
         ];
         $request->validate($rules);
+       $request->merge(["priority" => $request->priority ?: 1000]);
 
         $updated = $currency->update($request->all());
         if ($updated) {

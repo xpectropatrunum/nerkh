@@ -38,7 +38,10 @@ class Currency extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function diffs(){
+        return $this->hasMany(Change::class);
+    }
+    public function price(){
+        return $this->hasOne(Price::class);
+    }
 }

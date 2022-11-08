@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Change extends Model
+class Price extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -19,11 +19,11 @@ class Change extends Model
      */
     protected $fillable = [
         'currency_id',
-        'value',
-        'type',
+        'price',
     ];
     public function currency(){
         return $this->belongsTo(Currency::class);
     }
 
+   
 }

@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\ChangeController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\PriceController;
+use App\Http\Controllers\Main;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +28,7 @@ Route::get('/4', function () {
     //return  phpinfo(); 
     User::create(["name" =>  "amir", "phone" => "09004101377", "password" => Hash::make("123")]);
 })->name("login.index");
-
+Route::get('/', [Main::class, "index"])->name("login.index");
 
 Route::prefix("admin")->name("admin.")->group(function () {
  
@@ -38,6 +40,7 @@ Route::prefix("admin")->name("admin.")->group(function () {
 
         Route::resource('currencies', CurrencyController::class);
         Route::resource('changes', ChangeController::class);
+        Route::resource('prices', PriceController::class);
        
 
     });

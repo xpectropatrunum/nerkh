@@ -38,7 +38,7 @@ return [
     'login_failed'=> 'These credentials do not match our records.',
     'login_success'=>'You are Logged in as Admin!',
     'register_success'=>'Your registration was successful!',
-    'footer'=> '©2022 Meditrina',
+    'footer'=> '©2022 Novinex',
     'dashboard'=> 'Dashboard',
     'home'=>'Home',
     'settings'=>'Settings',
