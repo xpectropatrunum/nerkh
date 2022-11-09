@@ -95,6 +95,12 @@
 @push('admin_js')
     <script>
         $(function() {
+            if(!data__['{{$data[0]->slug}}']){
+                $("input, select, textarea", $(".api-row")).attr("disabled", "disabled");
+            }else{
+                $("input, select, textarea", $(".custom-row")).attr("disabled", "disabled");
+
+            }
             $("[name=name]").val('{{ $data[0]->name }}')
 
             $("[name=slug]").change(function() {
