@@ -90,7 +90,15 @@
 
 @push('admin_js')
     <script>
+
         $(function () {
+            if(!data__['{{$currency->slug}}']){
+                $("input, select, textarea", $(".api-row")).attr("disabled", "disabled");
+            }else{
+                $("input, select, textarea", $(".custom-row")).attr("disabled", "disabled");
+
+            }
+
             $("[name=name]").val('{{ old('name', $currency->name) }}')
             if(!data__['{{$currency->slug}}']){
                 $(".api-row").hide()
