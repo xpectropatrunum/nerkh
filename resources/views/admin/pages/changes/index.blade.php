@@ -71,8 +71,8 @@
                                 @foreach ($items as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->currency->slug }}</td>
-                                        <td>{{ $item->currency->name }}</td>
+                                        <td>{{ $item->currency?->slug }}</td>
+                                        <td>{{ $item->currency?->name }}</td>
                                         <td>
                                             @if ($item->type == 0)
                                                 Buy

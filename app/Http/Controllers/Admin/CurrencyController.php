@@ -45,7 +45,7 @@ class CurrencyController extends Controller
     public function create()
     {
         $token = env('SA_TOKEN');
-        $data = Http::get("http://sourcearena.ir/api/?token={$token}&currency")->object()->data;
+        $data = Http::get("http://sourcearena.ir/api/?token={$token}&currency&h")->object()->data;
         $js_data = json_encode(collect($data)->pluck('name', 'slug'));
 
         return view('admin.pages.currencies.create', compact('data', 'js_data'));
@@ -86,7 +86,7 @@ class CurrencyController extends Controller
     public function edit(Currency $currency)
     {
         $token = env('SA_TOKEN');
-        $data = Http::get("http://sourcearena.ir/api/?token={$token}&currency")->object()->data;
+        $data = Http::get("http://sourcearena.ir/api/?token={$token}&currency&h")->object()->data;
         $js_data = json_encode(collect($data)->pluck('name', 'slug'));
         return view('admin.pages.currencies.edit', compact('data', 'currency', 'js_data'));
     }
