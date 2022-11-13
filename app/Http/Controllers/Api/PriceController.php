@@ -60,7 +60,7 @@ class PriceController extends Controller
                 }
               
             }
-            if (str_contains($currency->slug, "TALA") || str_contains($currency->slug, "SEKE") || str_contains($currency->slug, "NOGREH")) {
+            if (str_contains($currency->slug, "TALA") || str_contains($currency->slug, "SEKE") || str_contains($currency->slug, "ONSNOGHRE")) {
                 $gold_[] = ["slug" => $currency->slug, "priority" => $currency->priority ?? 1000, "name" => $currency->name, "prices" => ["buy" => $price_buy, "sell" => $price_sell]];
             } else if (str_contains($currency->slug, "PARSIAN")) {
                 $parsian_[] = ["slug" => $currency->slug, "priority" => $currency->priority ?? 1000, "name" => $currency->name, "prices" => ["buy" => $price_buy, "sell" => $price_sell]];
