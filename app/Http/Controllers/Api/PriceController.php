@@ -44,6 +44,9 @@ class PriceController extends Controller
                 }
               
             } else {
+                if(!$currency->price){
+                    continue;
+                }
                 $price_sell = $currency->price->price;
                 $price_buy = $currency->price->price;
                 $diff = collect($currency->diffs);
